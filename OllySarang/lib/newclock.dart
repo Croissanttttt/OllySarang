@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:ollysarang/BasicPage.dart';
 
 class Wookieclock extends StatefulWidget {
   Wookieclock({Key key, this.title}) : super(key: key);
@@ -30,7 +31,7 @@ class _WookieclockState extends State<Wookieclock> {
   Widget build(BuildContext context) {
     return Text(
         _timeString,
-        style: TextStyle(fontSize: 30.0,color:Color.fromRGBO(84,55,41,1),fontWeight: FontWeight.bold));
+        style: TextStyle(fontSize: 30.0 + fontsize,color:Color.fromRGBO(84,55,41,1),fontWeight: FontWeight.bold));
   }
 
   void _getTime() {

@@ -5,6 +5,8 @@ import 'package:ollysarang/Page1_2.dart';
 import 'package:ollysarang/Page2.dart';
 import 'package:ollysarang/Page3.dart';
 
+double fontsize = 0;
+
 class BasicPage extends StatefulWidget{
   BasicPage({Key key,Title title}):super(key:key);
 
@@ -20,6 +22,25 @@ class _BasicPageState extends State<BasicPage>{
       _currentindex = index;
     });
   }
+
+  void plusFontSize() async{
+    setState(() {
+      if(fontsize<6){
+        fontsize+=3;
+      }
+      _currentindex = 0;
+    });
+  }
+
+  void minusFontSize() async{
+    setState(() {
+      if(fontsize>-6){
+        fontsize-=3;
+      }
+      _currentindex = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -27,6 +48,24 @@ class _BasicPageState extends State<BasicPage>{
       appBar: AppBar(
         leading: Icon(Icons.people),
         title: Text("올리사랑",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold)),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.remove),
+            onPressed: (){
+              setState(() {
+                minusFontSize();
+              });
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.add),
+            onPressed: (){
+              setState(() {
+                plusFontSize();
+              });
+            },
+          ),
+        ],
       ),
       body: _screen[_currentindex],
       bottomNavigationBar: new BottomNavigationBar(

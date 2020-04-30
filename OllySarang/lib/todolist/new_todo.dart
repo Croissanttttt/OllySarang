@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ollysarang/todolist/todo.dart';
+import 'package:ollysarang/BasicPage.dart';
 
 class NewTodoView extends StatefulWidget {
   final Todo item;
@@ -36,11 +37,11 @@ class _NewTodoViewState extends State<NewTodoView> {
             children: <Widget>[
               Text(
                 "내용을 입력하세요",
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(fontSize: 25 + fontsize),
               ),
               SizedBox(height: 25.0,),
               TextField(
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: 30 + fontsize),
                 controller: titleController,
                 autofocus: true,
                 onSubmitted: (value) => submit(),
@@ -58,7 +59,7 @@ class _NewTodoViewState extends State<NewTodoView> {
                         child: Text(
                           '취소',
                           style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 30 + fontsize,
                               color: Theme.of(context).primaryTextTheme.title.color
                           ),
                         ),
@@ -81,7 +82,7 @@ class _NewTodoViewState extends State<NewTodoView> {
                         child: Text(
                           '저장',
                           style: TextStyle(
-                              fontSize: 30,
+                              fontSize: 30 + fontsize,
                               color: Theme.of(context).primaryTextTheme.title.color
                           ),
                         ),

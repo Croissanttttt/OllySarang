@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ollysarang/todolist/new_todo.dart';
 import 'package:ollysarang/todolist/todo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ollysarang/BasicPage.dart';
 
 class Todolist extends StatelessWidget {
   @override
@@ -53,7 +54,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
                   '할 일',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 50.0,
+                    fontSize: 50.0 + fontsize,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -105,7 +106,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
       child: Center(
           child:  Text(
             '없음',
-            style: TextStyle(fontSize: 30),
+            style: TextStyle(fontSize: 30 + fontsize),
           )
       ),
     );
@@ -139,7 +140,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
             item.title,
             key: Key('item-$index'),
             style: TextStyle(
-                fontSize: 20,
+                fontSize: 20 + fontsize,
                 fontWeight: FontWeight.bold,
                 color: item.completed ? Colors.grey : Colors.black,
                 decoration: item.completed ? TextDecoration.lineThrough : null
@@ -151,14 +152,14 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
                 ButtonTheme(
                     minWidth:8,
                     child:FlatButton(
-                        child:Text("수정",style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700,),),
+                        child:Text("수정",style: TextStyle(fontSize: 15 + fontsize, fontWeight: FontWeight.w700,),),
                         onPressed: () => goToEditItemView(item)
                     )
                 ),
                 ButtonTheme(
                     minWidth:8,
                     child:FlatButton(
-                        child:Text("삭제",style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700,),),
+                        child:Text("삭제",style: TextStyle(fontSize: 15 + fontsize, fontWeight: FontWeight.w700,),),
                         onPressed: () {
                           showDialog(
                               context: context,
@@ -166,12 +167,12 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
                                 content: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
-                                    Text('삭제하시겠습니까?',style: TextStyle(fontSize: 30),),
+                                    Text('삭제하시겠습니까?',style: TextStyle(fontSize: 30 + fontsize),),
                                   ],
                                 ),
                                 actions: <Widget>[
                                   FlatButton(
-                                    child: Text("취소",style: TextStyle(fontSize: 30,)),
+                                    child: Text("취소",style: TextStyle(fontSize: 30 + fontsize)),
                                     onPressed: (){
                                       setState(() {
                                         Navigator.pop(context);
@@ -179,7 +180,7 @@ class HomeState extends State<Home> with SingleTickerProviderStateMixin{
                                     },
                                   ),
                                   FlatButton(
-                                    child: Text("삭제",style: TextStyle(fontSize: 30)),
+                                    child: Text("삭제",style: TextStyle(fontSize: 30 + fontsize)),
                                     onPressed: (){
                                       setState(() {
                                         removeItem(item);
